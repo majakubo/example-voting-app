@@ -52,9 +52,8 @@ pipeline {
 				echo 'Packagin worker app with docker'
 				script{
 					docker.withRegistry('https://index.docker.io/v1', '0d547fdc-bc7e-41fd-81f9-1d3c966f8769') {
-							def workerImage = docker.build("majakub/worker:v${env.BUILD_ID}", "./worker/")
+							def workerImage = docker.build("majakub/worker1:v${env.BUILD_ID}", "./worker/")
 							workerImage.push()
-							workerImage.push("${env.BANCH_NAME}")
 
 					}	
 				}
