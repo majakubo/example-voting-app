@@ -1,11 +1,5 @@
 pipeline {
 	agent none
-	agent {
-		docker{
-			image 'maven:3.6.1-jdk-8-slim'
-			args '-v $HOME/.m2:/root/.m2'
-		}
-	}
 
 	stages{
 		stage("build") {
@@ -54,9 +48,6 @@ pipeline {
 		}
 		stage('docker-package') {
 			agent any
-			when{
-				changeset '**/worker/**'
-			}
 			steps{
 				echo 'Packagin worker app with docker'
 				script{
