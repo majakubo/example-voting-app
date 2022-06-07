@@ -1,4 +1,4 @@
-FROM node:8.16.0-alpine
+FROM maven:3.6.1-jdk-8-slim 
 
 WORKDIR /app 
 
